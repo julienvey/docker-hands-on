@@ -1,5 +1,5 @@
 # Base image
-FROM ubuntu
+FROM base
 
 # Install redis
 RUN apt-get update
