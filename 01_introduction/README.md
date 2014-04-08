@@ -1,31 +1,38 @@
-1. Introduction
-====================
+# 0. Installation
 
-a. Hello World
----------------------
-Exécuter le processus echo afin d'afficher "Hello World" dans un Container Docker.
+Avant tout, installer Docker en vous référant aux [informations de la documentation Docker](http://docs.docker.io/en/latest/installation/)
 
-b. Mode Interactif
----------------------
-Exécuter un Container Docker en mode interactif puis installer le package redis-server.
+# 1. Introduction
 
-c. Commit
----------------------
-Sauvegarder l'état du Container dans une Image Docker.  
-Lister les images afin de vérifier que votre image a bien été créé.
+Pour les exercices suivants, aidez-vous de la [documentation en ligne de Docker](http://docs.docker.io/en/latest/reference/commandline/)
 
-d. Mode Daemon
----------------------
-Exécuter un Container à partir de votre Image créée préalablement, celui-ci devra être executé en mode daemon. (Astuce: voir option commande run)  
-Lister les processus docker en cours d'executions afin de vérifier que le container est bien executé en mode daemon.
+## a. Hello World
 
-e. Inspection
----------------------
-Récupérer les informations réseau du Container et extraire les informations suivantes: IP / Ports.  
+Lancer un conteneur qui affiche "Hello World" à l'aide de la commande echo
+
+## b. Mode interactif
+
+Lancer un conteneur Docker en mode interactif puis installer le package redis-server.
+
+## c. Commit
+
+Sauvegarder l'état du conteneur dans une image Docker.  
+Lister les images afin de vérifier que votre image a bien été sauvegardée.
+
+## d. Mode détaché (deamon)
+
+Lancer un conteneur à partir de votre image créée préalablement. Celui-ci devra être executé en mode daemon. (Astuce: voir options commande [`run`](http://docs.docker.io/en/latest/reference/commandline/cli/#run))  
+Lister les processus docker en cours d'executions afin de vérifier que le conteneur est bien en cours d'exécution en arrière-plan.
+
+## e. Inspection
+
+Récupérer les informations réseaux du conteneur et extraire les informations suivantes: IP / Ports.
 Quelles remarques pouvez-vous faire concernant le port ?  
-Vous pouvez désormais supprimer votre container.
+Vous pouvez désormais supprimer votre conteneur.
 
-f. Port Mapping
----------------------
-Exécuter un nouveau Container à partir de votre Image redis mais cette fois-ci il faudra exposer le port 6379 (Astuce: voir option commande run). Le Container devra également être exécuté en mode daemon.  
-Inspecter le Container dans le but de récupérer son IP et tester le serveur redis depuis votre machine local : "redis-cli -h <CONTAINER_IP> ping"
+## f. Port Mapping
+
+Exécuter un nouveau conteneur à partir de votre Image redis mais cette fois-ci il faudra exposer le port 6379 (Astuce: voir option commande `run`). Le conteneur devra également être exécuté en mode daemon.  
+Inspecter le conteneur dans le but de récupérer son IP et tester le serveur redis depuis votre machine local : `redis-cli -h <CONTAINER_IP> ping`
+
+(astuce : la commande `redis-cli` est disponible dans le package `redis-server`)
