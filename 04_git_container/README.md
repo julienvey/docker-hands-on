@@ -2,6 +2,8 @@
 
 Le but de cet exercice est de fournir un conteneur contenant un repository git et pouvant être accéder en SSH, afin de pouvoir provisionner rapidement et simplement des repositories Git.
 
+Aidez-vous de la [documentation de référence sur les Dockerfile](http://docs.docker.io/en/latest/reference/builder/)
+
 ## a. Installation des packages nécessaires 
 
 * Créez un Dockerfile de départ pour votre conteneur.
