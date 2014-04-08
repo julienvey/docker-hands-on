@@ -44,7 +44,7 @@ Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons
 
 * Lancez le conteneur que vous venez de créer.
 
-* Dans un repository git quelconque, ajoutez un remote correspondant à votre repository ainsi créé `$ git remote add git@github.com:julienvey/docker-hands-on.git`
+* Dans un repository git quelconque, ajoutez un remote correspondant à votre repository ainsi créé `$ git remote add docker git@github.com:julienvey/docker-hands-on.git`
 
 * poussez votre code `$ git push`
 
