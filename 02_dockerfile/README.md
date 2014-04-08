@@ -5,11 +5,11 @@ Pour cela Docker fournit les [**DockerFile**](http://docs.docker.io/en/latest/re
 
 ## a. Hello World... again
  
-* Créez un fichier *Dockerfile* à la racine de votre répertoire de travail.
+* Créez un répertoire de travail pour cet exercice et un fichier *Dockerfile* à la racine de celui-ci.
 
 Deux instructions seulement sont nécessaires pour reproduire l'exemple Hello World.
 
-* Définissez l'image source de votre container avec l'instruction `FROM`. Pour cet exercice, vous pouvez utiliser l'image source `ubuntu`
+* Définissez l'image source de votre conteneur avec l'instruction `FROM`. Pour cet exercice, vous pouvez utiliser l'image source `ubuntu`
 
 * Déclarez la commande `echo 'Hello World'` avec l'instruction `CMD` ou `ENTRYPOINT` ([voir la différence entre les deux instructions](http://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile?answertab=active#tab-top))
 
@@ -17,11 +17,11 @@ Deux instructions seulement sont nécessaires pour reproduire l'exemple Hello Wo
 
 Le résultat de la commande build est l'idenfiant du conteneur créé.
 
-* Pour tester si votre conteneur a le comportement souhaité, il suffit de l'exécuter avec la commande [`run`](http://docs.docker.io/en/latest/reference/commandline/cli/#run) 
+* Pour tester si votre conteneur a le comportement souhaité, lancez le avec la commande [`run`](http://docs.docker.io/en/latest/reference/commandline/cli/#run) 
 
 ## b. Exécution d'instructions
 
-* Au sein du Dockerfile, installer le package redis-server avec l'instruction `RUN` (ne pas oublier de mettre à jour la liste des packages)
+* Au sein du Dockerfile, installer le package redis-server avec l'instruction `RUN` (ne pas oublier de mettre à jour la liste des packages de la distribution)
 
 * Remplacer la commande `echo 'Hello World'` par `/usr/bin/redis-server` pour lancer votre service redis au démarrage du conteneur
 
@@ -33,7 +33,7 @@ Le résultat de la commande build est l'idenfiant du conteneur créé.
 
 * Lancer un nouveau conteneur (en mode daemon)à partir de l'image qui vient d'être généré
 
-* Vérifiez que vous avez bien accès au service redis sur le conteneur (pour cela, il vous faudra trouver le bon numéro de port)
+* Vérifiez que vous avez bien accès au service redis sur le conteneur avec la commande `redis-cli` (pour cela, il vous faudra trouver le bon numéro de port)
 
 
 
