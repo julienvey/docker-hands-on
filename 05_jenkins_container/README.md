@@ -30,7 +30,7 @@ RUN \
 * Vous pouvez désormais installer le package jenkins
 
 ## c. Accès SSH
-Configurer les accès comme cela a été fait pour [l'exercice 03](julienvey/docker-hands-on/tree/master/04_git_container#acc%C3%A8s-ssh) 
+Configurer les accès comme cela a été fait pour [l'exercice 03](../04_git_container#acc%C3%A8s-ssh) 
 
 ## d. Configurer Jenkins
 L'étape suivante consiste à ajouter les jobs Jenkins nécessaires au build de la webapp.  
