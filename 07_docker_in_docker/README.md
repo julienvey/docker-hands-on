@@ -6,7 +6,7 @@ Nous dispons déjà du job jenkins permettant d'effectuer le build depuis les so
 ## a. Docker In Docker
 Notre conteneur Jenkins a donc besoin d'utiliser le binaire docker pour construire dynamiquement des conteneurs. Ce qui revient donc à faire du.... Docker in Docker!
 
-![Inception Docker in Docker](https://github.com/jpetazzo/dind/blob/master/spintop.jpg)
+![Inception Docker in Docker](https://raw.githubusercontent.com/jpetazzo/dind/master/spintop.jpg)
 
 Pour cela nous allons utiliser l'image de base ["dind"](https://github.com/jpetazzo/dind/) dans notre conteneur Jenkins. Vous pouvez donc reprendre votre conteneur Jenkins de [l'exercice 5](../05_jenkins_container) et modifier la commande FROM.  
 
@@ -36,4 +36,4 @@ cat /Dockerfile.template | sed -e "s:\${WEBAPP_WAR_FILEPATH}:target/$webapp_file
 
 
 ## c. Post Build Task
-Cette dernière étape consiste à ajouter le script au plugin Jenkins "Post build task". 
+Cette dernière étape consiste à ajouter le script au plugin Jenkins "Post build task". Comme dans [l'exercice 5](../05_jenkins_container), nous vous fournissons les fichiers de configurations Jenkins, la seule contrainte est que le nom de votre script doit être "build_docker_webbapp.sh"
