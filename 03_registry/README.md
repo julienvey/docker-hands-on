@@ -1,6 +1,6 @@
 # 3. Docker Registry
 
-Dans cet exercise, nous allons nous familiariser avec les concepts du Registry Docker et de l'[index](https://index.docker.io/) (Registry central)
+Dans cet exercice, nous allons nous familiariser avec les concepts du Registry Docker et de l'[index](https://index.docker.io/) (Registry central)
 
 ## a. Pull (Registry Central)
 
