@@ -16,15 +16,11 @@ Ajouter la commande permettant d'installer le package Jenkins
 
 * Au préalable, ajouter le repository jenkins ci-dessous dans vos sources.list
 ```bash
-RUN \
-    wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - ;\
-    sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' ;\
-    apt-get update ;\
-
-    # Workaround due to a bug in last version of jenkins (seen 7 nov 2013)
-    # see https://issues.jenkins-ci.org/browse/JENKINS-20407
-    mkdir /var/run/jenkins
-#RUN
+RUN apt-get install -y wget
+RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+RUN apt-get update
+RUN apt-get install -y jenkins
 ```
 
 * Vous pouvez désormais installer le package jenkins
@@ -36,19 +32,14 @@ RUN \
 ## d. Configurer Jenkins
 
 * L'étape suivante consiste à ajouter les jobs Jenkins nécessaires au build de la webapp.  
-Cette étape étant difficilement réalisable durant le temps imparti du hands-on, nous vous fournissons les XML, les scripts de configurations et les commandes à ajouter à votre Dockerfile afin d'ajouter les plugins et jobs Jenkins.
+Cette étape étant difficilement réalisable durant le temps imparti du hands-on, nous vous fournissons les XML, les scripts de configurations et les commandes à ajouter à votre Dockerfile afin d'ajouter les plugins Jenkins et configurer les jobs.
 
 ```bash
 # Configure Jenkins
-ADD config-jenkins.sh config.sh
-ADD config-job.xml config-job.xml
-RUN chmod +x config.sh
-RUN ./config.sh
-
-ADD hudson.tasks.Maven.xml /var/lib/jenkins/hudson.tasks.Maven.xml
-ADD jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin.xml /var/lib/jenkins/jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin.xml
+ADD jenkinsconf.tar.gz /root
+RUN chmod 700 /root/.jenkins
 ADD startup-jenkins.sh /startup.sh
-RUN chmod +x /startup.sh
+RUN chmod 700 /startup.sh
 ```
 
 * Finaliser votre Dockerfile sachant que le port 8080 doit être exposé et que le script de startup a déjà été rajouté lors de l'étape précédente.
