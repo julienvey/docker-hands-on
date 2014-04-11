@@ -44,9 +44,9 @@ Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons
 
 ## d. Test end-to-end
 
-* Pour tester votre conteneur, connectez vous en ssh `ssh $CONTENEUR_IP`
-
 * Lancez le conteneur que vous venez de créer.
+
+* Pour tester votre conteneur, connectez vous en ssh `ssh $CONTENEUR_IP`
 
 * Dans un repository git quelconque, ajoutez un remote correspondant à votre repository ainsi créé `$ git remote add docker git@github.com:julienvey/docker-hands-on.git`
 
