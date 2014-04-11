@@ -21,7 +21,7 @@ Lister les images afin de vérifier que votre image a bien été sauvegardée.
 
 ## d. Mode détaché (deamon)
 
-Lancer un conteneur à partir de votre image créée préalablement. Celui-ci devra être executé en mode daemon. (Astuce: voir options commande [`run`](http://docs.docker.io/en/latest/reference/commandline/cli/#run))  
+Lancer un conteneur à partir de votre image créée préalablement. Celui-ci devra être executé en mode daemon. (Astuce: voir options commande [`run`](http://docs.docker.io/en/latest/reference/commandline/cli/#run)) avec comme commande de démarrage `/usr/bin/redis-server`
 Lister les processus docker en cours d'executions afin de vérifier que le conteneur est bien en cours d'exécution en arrière-plan.
 
 ## e. Inspection
