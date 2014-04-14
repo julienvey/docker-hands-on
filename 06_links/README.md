@@ -4,9 +4,9 @@ Maintenant que nous avons notre conteneur git et notre conteneur Jenkins, nous a
 
 Le but de cet exercice est de produire l'environnement pour réaliser le workflow suivant:
 - 'git push' sur le conteneur git
-- un hook git notifie déclenche un job sur le conteneur jenkins
-- le conteneur jenkis pull le repository git 
-- jenkins build l'application
+- un hook git notifie jenkins et déclenche un job sur le conteneur jenkins
+- le conteneur jenkis pull le repository git
+- jenkins build l'application et génère un war
 
 ## a. Script
 
@@ -75,16 +75,3 @@ $ git remote add docker $GIT_URL
 * Vérifiez que votre instance de Jenkins est en train de builder votre application.
 
 Voilà, vous pouvez désormais lancer autant d'instances d'usines logicielles que vous le souhaitez, avec un simple script bash `runstack.sh`
-
-
-
-
-
-
-
-
-
-
-
-
-
