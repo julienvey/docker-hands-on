@@ -27,7 +27,9 @@ RUN apt-get install -y --force-yes jenkins
 
 ## c. Accès SSH
 
-* Configurer les accès comme cela a été fait pour [l'exercice 03](../04_git_container#acc%C3%A8s-ssh)
+* Configurer les accès comme cela a été fait pour [l'exercice 04](../04_git_container#acc%C3%A8s-ssh)
+
+* Il vous faudra cette fois-ci copier également la clé privée, en plus de la clé publique de l'exercice 04
 
 ## d. Configurer Jenkins
 
@@ -48,4 +50,4 @@ RUN chmod 700 /startup.sh
 
 ## e. Test
 
-* Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé.
+* Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé en vous connectant à l'interface Web (Si vous utilisez Docker dans une VM, il sera surement nécessaire de faire de la redirection de port)
