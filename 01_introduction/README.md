@@ -8,7 +8,7 @@ Pour les exercices suivants, aidez-vous de la [documentation en ligne de Docker]
 
 ## a. Hello World
 
-Lancer un conteneur qui affiche "Hello World" à l'aide de la commande echo
+Lancer le conteneur de l'Image ubuntu qui affiche "Hello World" à l'aide de la commande echo.
 
 ## b. Mode interactif
 
