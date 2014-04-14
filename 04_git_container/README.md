@@ -48,10 +48,12 @@ Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons
 
 * Pour tester votre conteneur, connectez vous en ssh `ssh git@$CONTENEUR_IP`
 
-* Dans un repository git (nous vous conseillons de cloner https://github.com/julienvey/hello-java sur votre hôte), ajoutez ensuite un remote correspondant à votre repository créé avec Docker
+* Placez-vous dans un repository git (nous vous conseillons de cloner https://github.com/julienvey/hello-java sur votre hôte)
 
-`$ git remote add docker git@github.com:julienvey/docker-hands-on.git`
+* Ajoutez un remote correspondant à votre repository créé avec Docker
+
+`$ git remote add docker git@${CONTAINER_IP}:/opt/git/project.git`
 
 * poussez votre code `$ git push`
 
-* Vérifiez dans les logs du conteneur (avec la command [`logs`](http://docs.docker.io/en/latest/reference/commandline/cli/#logs)) que votre hook a bien été appelé
+* Vérifiez dans les logs de la commande `git push` que votre hook a bien été appelé
