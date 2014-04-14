@@ -29,7 +29,16 @@ RUN apt-get install -y --force-yes jenkins
 
 * Configurer les accès comme cela a été fait pour [l'exercice 04](../04_git_container#acc%C3%A8s-ssh)
 
-* Il vous faudra cette fois-ci copier également la clé privée, en plus de la clé publique de l'exercice 04
+* Il vous faudra cette fois-ci copier également la clé privée, en plus de la clé publique de l'exercice 04, ainsi que copier le fichier ssh-config fourni. Ce fichier modifie simplement la variable `StrictHostKeyChecking`
+
+```bash
+# Generate SSH Key
+RUN mkdir /var/lib/jenkins/.ssh/
+ADD id_rsa.pub /root/.jenkins/.ssh/id_rsa.pub
+ADD id_rsa /root/.jenkins/.ssh/id_rsa
+RUN chmod 600 /root/.jenkins/.ssh/id_rsa.pub /root/.jenkins/.ssh/id_rsa
+ADD ssh-config /etc/ssh/ssh_config
+```
 
 ## d. Configurer Jenkins
 
