@@ -34,7 +34,7 @@ RUN apt-get install -y jenkins
 L'étape suivante consiste à ajouter les jobs Jenkins nécessaires au build de la webapp.  
 Cette étape étant difficilement réalisable durant le temps imparti du hands-on, nous vous fournissons les XML, les scripts de configurations et les commandes à ajouter à votre Dockerfile afin d'ajouter les plugins Jenkins et configurer les jobs.
 
-Téléchargez [ce fichier](https://docs.google.com/file/d/0B17A6PfeKUlxd0cxV2hITEgxTzg/edit) et placez le dans votre répertoire de travail.
+Téléchargez [ce fichier](https://drive.google.com/file/d/0B17A6PfeKUlxa0JoOGdoSG5taWM/edit) et placez le dans votre répertoire de travail.
 
 ```bash
 # Configure Jenkins
