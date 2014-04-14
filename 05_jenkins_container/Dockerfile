@@ -2,19 +2,19 @@ FROM ubuntu
 MAINTAINER Pierre Padrixe "pierre.padrixe@numergy.com"
 
 RUN apt-get update
-RUN apt-get install -y openjdk-7-jre git curl maven
+RUN apt-get install -y openjdk-6-jdk git curl maven
 
 # Install Jenkins
 RUN apt-get install -y wget
 RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 RUN apt-get update
-RUN apt-get install -y --force-yes jenkins
+RUN apt-get install -y jenkins
 
 # Copy SSH Key
-ADD docker.pub /root/.jenkins/.ssh/id_rsa.pub
-ADD docker /root/.jenkins/.ssh/id_rsa
-RUN chmod 600 /root/.jenkins/.ssh/id_rsa.pub /root/.jenkins/.ssh/id_rsa
+ADD docker.pub /root/.ssh/id_rsa.pub
+ADD docker /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa /root/.ssh/id_rsa.pub
 ADD ssh-config /etc/ssh/ssh_config
 
 # Configure Jenkins
