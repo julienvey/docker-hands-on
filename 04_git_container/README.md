@@ -6,11 +6,11 @@ Aidez-vous de la [documentation de référence sur les Dockerfile](http://docs.d
 
 ## a. Installation des packages nécessaires
 
-* Créez un Dockerfile de départ pour votre conteneur.
+* Créez un fichier Dockerfile de départ pour votre conteneur.
 
-* Installez les packages nécessaires, git-core et openssh-server
+* Installez les packages nécessaires, `git-core` et `openssh-server` (Vous aurez également besoin de `curl` pour la suite)
 
-* Il est nécessaire de créer le répertoire `/var/run/sshd` pour pouvoir lancer le serveur SSH  
+* Note : Il est nécessaire de créer le répertoire `/var/run/sshd` pour pouvoir lancer le serveur SSH  
 
 
 ## Accès SSH
@@ -19,13 +19,15 @@ Aidez-vous de la [documentation de référence sur les Dockerfile](http://docs.d
 
 * La commande `/usr/sbin/sshd -D` devra être utilisée commande commande du démarrage du conteneur
 
-Afin de pouvoir accéder plus facilement au serveur git, nous allons lui fournir notre clé publique SSH. Pour cela, nous allons l'ajouter au fichier `/home/git/.ssh/authorized_keys` de notre conteneur.
+Afin de pouvoir accéder plus facilement au serveur git par la suite, nous allons lui fournir une clé publique SSH. Pour cela, nous allons l'ajouter au fichier `/home/git/.ssh/authorized_keys` de notre conteneur.
 
-* Copier votre clé publique SSH dans le répertoire de travail de votre conteneur git.
+* Utiliser la clé publique `docker.pub`.
 
 * Ajouter la au fichier `/home/git/.ssh/authorized_keys` de votre image à l'aide de l'instruction [`ADD`](http://docs.docker.io/en/latest/reference/builder/#add)
 
-Pour vérifier que tout fonctionne, connectez vous en SSH au conteneur avec l'utilisateur git, sans avoir à rentrer de mot de passe.
+Pour vérifier que tout fonctionne, connectez vous en SSH au conteneur avec l'utilisateur git, mot de passe git
+
+(vous pouvez aussi copier les fichiers `docker.pub` et `docker` présents dans le répertoire [05_jenkins_container](../05_jenkins_container) dans votre dossier ssh, `~/.ssh` pour pouvoir accéder au conteneur sans rentrer de mote passe).
 
 ## b. Configuration Git
 
@@ -37,11 +39,11 @@ Afin d'avoir un repository git fonctionnel sur votre conteneur, un peu de config
 
 ## c. Ajout d'un hook Git
 
-Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons également besoin plus tard), nous allons ajouter un `post_receive` hook au repository que nous avons crée
+Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons également besoin plus tard), nous allons ajouter un `post_receive` hook au repository que nous avons créé
 
-* Dans le répertoire de travail, ajouter un fichier, qui consistera en un simple script bash qui fera un simple `echo`, afin de vérifier que chaque commit appelle bien ce hook
+* Dans le répertoire de travail, ajoutez un fichier, qui consistera en un simple script bash qui fera juste `echo`, afin de vérifier que chaque commit appelle bien ce hook
 
-* Ajouter ce fichier dans `/opt/git/project.git/hooks/post-receive` toujours avec l'instruction `ADD`
+* Ajoutez ce fichier dans `/opt/git/project.git/hooks/post-receive` toujours avec l'instruction `ADD`
 
 * Petite astuce, n'oubliez pas d'ajouter les droits en exécution sur ce fichier, `chmod +x /opt/git/project.git/hooks/post-receive`
 
@@ -57,6 +59,6 @@ Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons
 
 `$ git remote add docker git@${CONTAINER_IP}:/opt/git/project.git`
 
-* poussez votre code `$ git push`
+* poussez votre code `$ git push docker master`
 
 * Vérifiez dans les logs de la commande `git push` que votre hook a bien été appelé

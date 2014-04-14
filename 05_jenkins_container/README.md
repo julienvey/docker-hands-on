@@ -4,39 +4,33 @@ Attention: L'image de base de votre Dockerfile devra être ubuntu: votre Dockerf
 
 ## a. Installer les packages prérequis
 
-Ajouter les commandes dans votre Dockerfile permettant d'installer les packages suivants:
+Ajoutez les commandes dans votre Dockerfile permettant d'installer les packages suivants:
 
-* Le package Java: soit openjdk, soit le jdk d'Oracle (oracle-java7-installer) disponible dans le repository ppa:webupd8team/java (add-apt-repository ppa:webupd8team/java)
-
-* Les package git, curl, maven, wget
-
+* `openjdk-6-jdk`, `git`, `curl`, `maven`, `wget`
 
 ## b. Installer Jenkins
-Ajouter la commande permettant d'installer le package Jenkins
 
-* Au préalable, ajouter le repository jenkins ci-dessous dans vos sources.list
+* Avant tout, ajoutez le repository jenkins ci-dessous dans vos sources.list
 ```bash
-RUN apt-get install -y wget
 RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 RUN apt-get update
-RUN apt-get install -y --force-yes jenkins
+RUN apt-get install -y jenkins
 ```
 
-* Vous pouvez désormais installer le package jenkins
+* Installez ensuite le package `jenkins`
 
 ## c. Accès SSH
 
-* Configurer les accès comme cela a été fait pour [l'exercice 04](../04_git_container#acc%C3%A8s-ssh)
+* Comme cela a été fait pour [l'exercice 04](../04_git_container#acc%C3%A8s-ssh), nous allons copier les clés SSH dans le répertoire SSH de jenkins
 
-* Il vous faudra cette fois-ci copier également la clé privée, en plus de la clé publique de l'exercice 04, ainsi que copier le fichier ssh-config fourni. Ce fichier modifie simplement la variable `StrictHostKeyChecking`
+* Il vous faudra cette fois-ci copier également la clé privée, en plus de la clé publique, ainsi que copier le fichier ssh-config fourni. Ce fichier modifie simplement la variable `StrictHostKeyChecking`
 
 ```bash
-# Generate SSH Key
-RUN mkdir /var/lib/jenkins/.ssh/
-ADD id_rsa.pub /root/.jenkins/.ssh/id_rsa.pub
-ADD id_rsa /root/.jenkins/.ssh/id_rsa
-RUN chmod 600 /root/.jenkins/.ssh/id_rsa.pub /root/.jenkins/.ssh/id_rsa
+# Copy SSH Key
+ADD docker.pub /root/.ssh/id_rsa.pub
+ADD docker /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa /root/.ssh/id_rsa.pub
 ADD ssh-config /etc/ssh/ssh_config
 ```
 
@@ -45,7 +39,8 @@ ADD ssh-config /etc/ssh/ssh_config
 L'étape suivante consiste à ajouter les jobs Jenkins nécessaires au build de la webapp.  
 Cette étape étant difficilement réalisable durant le temps imparti du hands-on, nous vous fournissons les XML, les scripts de configurations et les commandes à ajouter à votre Dockerfile afin d'ajouter les plugins Jenkins et configurer les jobs.
 
-Téléchargez [ce fichier](https://drive.google.com/file/d/0B17A6PfeKUlxa0JoOGdoSG5taWM/edit) et placez le dans votre répertoire de travail.
+* Téléchargez le fichier [jenkinsconf.tar.gz](https://drive.google.com/file/d/0B17A6PfeKUlxa0JoOGdoSG5taWM/edit), également disponible sur la clé fournie, et placez le dans votre répertoire de travail.
+* Nous allons également ajouter le fichier startup-jenkins.sh dans notre conteneur
 
 ```bash
 # Configure Jenkins
@@ -55,8 +50,8 @@ ADD startup-jenkins.sh /startup.sh
 RUN chmod 700 /startup.sh
 ```
 
-* Finaliser votre Dockerfile sachant que le port 8080 doit être exposé et que le script de startup a déjà été rajouté lors de l'étape précédente.
+* Finalisez votre Dockerfile en exposant le port 8080 et en utilisant le script de startup rajouté lors de l'étape précédente comme commande de démarrage.
 
 ## e. Test
 
-* Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé en vous connectant à l'interface Web (Si vous utilisez Docker dans une VM, il sera surement nécessaire de faire de la redirection de port)
+* Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé en vous connectant à l'interface Web (Si vous utilisez Docker dans une VM, n'oubliez pas de faire un mapping du port 8080 entre votre conteneur et la VM hôte)

@@ -1,11 +1,10 @@
 FROM ubuntu
-MAINTAINER Pierre Padrixe "pierre.padrixe@numergy.com"
 
+# Install packages needed
 RUN apt-get update
-RUN apt-get install -y openjdk-6-jdk git curl maven
+RUN apt-get install -y openjdk-6-jdk git curl maven wget
 
 # Install Jenkins
-RUN apt-get install -y wget
 RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 RUN apt-get update

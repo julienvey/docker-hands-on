@@ -2,20 +2,21 @@
 
 Maintenant que nous avons notre conteneur git et notre conteneur Jenkins, nous allons les lier entre eux.
 
-Le but de cet exercice est de produire l'environnement pour réaliser le workflow suivant:
-- 'git push' sur le conteneur git
+Note : Pour ceux qui n'auraient pas réussi à construire l'une ou l'autre des images, vous pouvez utiliser les images `julienvey/git` et `julienvey/jenkins` disponibles sur l'index Docker.
+
+Le but de cet exercice est de produire l'environnement permettant de réaliser le workflow suivant:
+- `git push` sur le conteneur git
 - un hook git notifie jenkins et déclenche un job sur le conteneur jenkins
-- le conteneur jenkis pull le repository git
+- le conteneur jenkis qui `pull` le repository git
 - jenkins build l'application et génère un war
 
 ## a. Script
 
-* Créez un script bash, nommé par exemple runstack.sh
-
+* Créez un fichier pour votre script bash, nommé par exemple `runstack.sh`
 
 ## b. conteneur Git
 
-* Dans le répertoire de votre conteneur Git, modifiez le hook. Celui-ci va maintenant notifier le conteneur jenkins à chaque push sur le repo. Voici le script bash :
+* Dans le répertoire de votre conteneur Git, modifiez le hook. Celui-ci doit maintenant notifier le conteneur jenkins à chaque push sur le repo. Voici le script bash qui fait ceci :
 
 ```
 #!/bin/bash
@@ -35,11 +36,11 @@ Nous verrons juste après pourquoi nous utilisons `$(cat /home/git/jenkins.host)
 
 Dans la suite de cet exercice, nous allons utiliser les [`link`](http://docs.docker.io/en/latest/use/working_with_links_names/) de Docker.
 
-Malheureusement les links docker sont unidirectionnels. Hors dans notre workflow, nous avons besoin que les deux conteneurs se connaissents. Git doit connaître jenkins pour trigger le build du job via le hook. Et jenkins a besoin de connaître Git pour pouvoir faire un pull du code source. Nous allons donc devoir modifier quelque peu nos conteneurs et notre script pour prendre en compte cette contrainte
+Malheureusement les links docker sont unidirectionnels. Hors dans notre workflow, nous avons besoin que les deux conteneurs se connaissent. Git doit connaître jenkins pour trigger le build du job via le hook. Et jenkins a besoin de connaître Git pour pouvoir faire un `git pull` du code source. Nous allons donc devoir modifier quelque peu nos conteneurs et notre script pour prendre en compte cette contrainte
 
-Ajoutez ce code bash à votre script
+Ajoutez ce code bash à votre script `runstack.sh`
 
-```
+```bash
 HOST_FILE=/tmp/jenkins.host
 echo $JENKINS_IP > $HOST_FILE
 scp $HOST_FILE git@$GIT_IP:/home/git/jenkins.host
@@ -70,7 +71,7 @@ echo "Jenkins available at $JENKINS_IP:8080"
 $ git remote add docker $GIT_URL
 ```
 
-* Poussez votre code avec `git push`
+* Poussez votre code avec `git push docker master`
 
 * Vérifiez que votre instance de Jenkins est en train de builder votre application.
 
