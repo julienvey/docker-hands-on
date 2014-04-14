@@ -1,0 +1,5 @@
+#!/bin/bash
+
+IP_ADDRESS=$(cat /home/git/jenkins.host)
+echo Jenkins IP is !$IP_ADDRESS!
+curl http://$IP_ADDRESS:8080/job/defaultjob/build
