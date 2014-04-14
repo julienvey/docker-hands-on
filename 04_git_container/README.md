@@ -10,6 +10,9 @@ Aidez-vous de la [documentation de référence sur les Dockerfile](http://docs.d
 
 * Installez les packages nécessaires, git-core et openssh-server
 
+* Il est nécessaire de créer le répertoire `/var/run/sshd` pour pouvoir lancer le serveur SSH  
+
+
 ## Accès SSH
 
 * Pour pouvoir accéder au conteneur à distance, via SSH, il faut exposer le port 22
