@@ -4,7 +4,7 @@ Le but de cet exercice est de fournir un conteneur contenant un repository git e
 
 Aidez-vous de la [documentation de référence sur les Dockerfile](http://docs.docker.io/en/latest/reference/builder/)
 
-## a. Installation des packages nécessaires 
+## a. Installation des packages nécessaires
 
 * Créez un Dockerfile de départ pour votre conteneur.
 
@@ -46,25 +46,10 @@ Pour vérifier que notre repository fonctionne bien (et parce que nous en aurons
 
 * Lancez le conteneur que vous venez de créer.
 
-* Pour tester votre conteneur, connectez vous en ssh `ssh $CONTENEUR_IP`
+* Pour tester votre conteneur, connectez vous en ssh `ssh git@$CONTENEUR_IP`
 
 * Dans un repository git quelconque, ajoutez un remote correspondant à votre repository ainsi créé `$ git remote add docker git@github.com:julienvey/docker-hands-on.git`
 
 * poussez votre code `$ git push`
 
 * Vérifiez dans les logs du conteneur (avec la command [`logs`](http://docs.docker.io/en/latest/reference/commandline/cli/#logs)) que votre hook a bien été appelé
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
