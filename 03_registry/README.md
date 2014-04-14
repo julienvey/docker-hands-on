@@ -14,6 +14,6 @@ Dans cet exercice, nous allons nous familiariser avec les concepts du Registry D
 
 * Créer votre propre registry local en utilisant l'image "samalba/docker-registry" disponible sur le registry central. Le port 5000 doit être exposé lors de l'exécution du Container contenant le registry.
 
-## c. Push (Private Registry)
+## e. Push (Private Registry)
 
 * Récupérer l'IP du Container créé lors de l'étape précédente et publier votre Image sur votre registry local. (Astuce: utiliser un tag pour spécifier l'ip et le port du registry avant de faire `push`)
