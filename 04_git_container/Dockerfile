@@ -1,16 +1,14 @@
 FROM base
 
-# make sure the package repository is up to date
+# Install Git
 RUN apt-get update
-
-# install Git
 RUN apt-get -y install git-core curl
 
-# install ssh
+# Install ssh
 RUN apt-get -y install openssh-server
 RUN mkdir /var/run/sshd
 
-# create ssh-user
+# Create ssh-user
 RUN adduser git
 RUN echo git:git | chpasswd
 RUN mkdir /home/git/.ssh
