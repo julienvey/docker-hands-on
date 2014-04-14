@@ -6,7 +6,7 @@ Attention: L'image de base de votre Dockerfile devra être ubuntu: votre Dockerf
 
 Ajouter les commandes dans votre Dockerfile permettant d'installer les packages suivants:
 
-* Le package Java: soit openjdk, soit le jdk d'Oracle (oracle-java7-installer) disponible dans le repository ppa:webupd8team/java (add-apt-repository ppa:webupd8team/java) 
+* Le package Java: soit openjdk, soit le jdk d'Oracle (oracle-java7-installer) disponible dans le repository ppa:webupd8team/java (add-apt-repository ppa:webupd8team/java)
 
 * Les package git, curl, maven, wget
 
@@ -27,7 +27,7 @@ RUN apt-get install -y jenkins
 
 ## c. Accès SSH
 
-* Configurer les accès comme cela a été fait pour [l'exercice 03](../04_git_container#acc%C3%A8s-ssh) 
+* Configurer les accès comme cela a été fait pour [l'exercice 03](../04_git_container#acc%C3%A8s-ssh)
 
 ## d. Configurer Jenkins
 
@@ -38,7 +38,7 @@ Téléchargez [ce fichier](https://drive.google.com/file/d/0B17A6PfeKUlxa0JoOGdo
 
 ```bash
 # Configure Jenkins
-ADD 05_jenkins_container-1104.tar /root
+ADD jenkinsconf.tar.gz /root
 RUN chmod 700 /root/.jenkins
 ADD startup-jenkins.sh /startup.sh
 RUN chmod 700 /startup.sh
@@ -49,4 +49,3 @@ RUN chmod 700 /startup.sh
 ## e. Test
 
 * Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé.
-
