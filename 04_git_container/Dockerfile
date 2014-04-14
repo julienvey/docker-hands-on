@@ -8,13 +8,13 @@ RUN apt-get -y install git-core curl
 
 # install ssh
 RUN apt-get -y install openssh-server
-RUN mkdir /var/run/sshd 
+RUN mkdir /var/run/sshd
 
 # create ssh-user
 RUN adduser git
 RUN echo git:git | chpasswd
 RUN mkdir /home/git/.ssh
-ADD id_rsa.pub /home/git/.ssh/authorized_keys
+ADD docker.pub /home/git/.ssh/authorized_keys
 
 RUN mkdir /opt/git
 RUN mkdir /opt/git/project.git
