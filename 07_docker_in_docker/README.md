@@ -1,6 +1,6 @@
 # 7. Jenkins notre Factory Docker
 Le but de cette septième étape est de transformer notre Jenkins en une véritable factory de conteneur Docker. Notre conteneur Jenkins sera en mesure de packager une application web Java depuis les sources en un conteneur, l'exécution de ce nouveau conteneur permettra de lancer la webapp.  
-Nous dispons déjà du job jenkins permettant d'effectuer le build depuis les sources en une archive WAR (cf: (exercice 05[../07_docker_in_docker]), il ne nous reste plus qu'à ajouter la partie permettant de construire dynamiquement les conteneur à partir d'un WAR.
+Nous dispons déjà du job jenkins permettant d'effectuer le build depuis les sources en une archive WAR (cf: (exercice 05[../05_jenkins_container]), il ne nous reste plus qu'à ajouter la partie permettant de construire dynamiquement les conteneur à partir d'un WAR.
 
 
 ## a. Docker In Docker
@@ -22,7 +22,7 @@ Afin de tester le script, vous pouvez exécuter votre conteneur Jenkins en mode 
 webapp_filepath=$(ls -tR | grep -E "^*.war$" | head -1)
 ```
 
-* Puis vous devez écrire le Dockerfile qui permet d'ajouter ce WAR dans un conteneur et de l'executer à partir d'une image de base tomcat. L'image de base est disponible sur le registry central: (ppadrixe/tomcat)[https://index.docker.io/u/ppadrixe/tomcat]
+* Puis vous devez écrire le Dockerfile qui permet d'ajouter ce WAR dans un conteneur. Il faut également ajouter à ce Dockerfile le package tomcat, ou tout autre container de servlet permettant d'éxecuter le WAR.
 
 * Le nom de la webapp est dynamique, il faut donc que l'on puisse passer une variable au Dockerfile contenant le chemin de la webapp. Pour cela nous allons utiliser un template pour notre Dockerfile. Ainsi la commande ADD de notre template "Dockerfile.template" contiendra la variable ${WEBAPP_WAR_FILEPATH} et notre script devra générer le Dockerfile à partir de ce Dockerfile:
 
