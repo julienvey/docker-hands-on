@@ -1,6 +1,6 @@
 # 7. Jenkins notre Factory Docker
 Le but de cette septième étape est de transformer notre Jenkins en une véritable factory de conteneur Docker. Notre conteneur Jenkins sera en mesure de packager une application web Java depuis les sources en un conteneur, l'exécution de ce nouveau conteneur permettra de lancer la webapp.  
-Nous dispons déjà du job jenkins permettant d'effectuer le build depuis les sources en une archive WAR (cf: (exercice 05[../05_jenkins_container]), il ne nous reste plus qu'à ajouter la partie permettant de construire dynamiquement les conteneur à partir d'un WAR.
+Nous dispons déjà du job jenkins permettant d'effectuer le build depuis les sources en une archive WAR (cf: [exercice 5](../05_jenkins_container), il ne nous reste plus qu'à ajouter la partie permettant de construire dynamiquement les conteneur à partir d'un WAR.
 
 
 ## a. Docker In Docker
