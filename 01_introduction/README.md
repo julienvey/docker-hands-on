@@ -32,7 +32,7 @@ Vous pouvez désormais supprimer votre conteneur.
 
 ## f. Port Mapping
 
-Exécutez un nouveau conteneur à partir de votre Image redis mais cette fois-ci il faudra exposer le port 6379 (Astuce: [voir option commande `run`](http://docs.docker.io/en/latest/reference/run/)). Le conteneur devra également être exécuté en mode daemon.  
+Exécutez un nouveau conteneur à partir de votre Image redis mais cette fois-ci il faudra exposer le port 6379 et le binder sur un port de votre host (Astuce: [voir option commande `run`](http://docs.docker.io/en/latest/reference/run/)). Le conteneur devra également être exécuté en mode daemon.  
 Inspecter le conteneur dans le but de récupérer son IP et tester le serveur redis depuis votre machine local : `redis-cli -h <CONTAINER_IP> ping`
 
 (astuce : la commande `redis-cli` est disponible dans le package `redis-server`)
