@@ -1,5 +1,7 @@
 # 3. Docker Registry
 
+## Note : Cet exercice nécessite un accès réseau
+
 Dans cet exercice, nous allons nous familiariser avec les concepts du Registry Docker et de l'[index](https://index.docker.io/) (Registry central)
 
 ## a. Pull (Registry Central)

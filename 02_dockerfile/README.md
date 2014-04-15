@@ -9,7 +9,7 @@ Pour cela Docker fournit les [**DockerFile**](http://docs.docker.io/en/latest/re
 
 Deux instructions seulement sont nécessaires pour reproduire l'exemple Hello World.
 
-* Définissez l'image source de votre conteneur avec l'instruction `FROM`. Pour cet exercice, vous pouvez utiliser l'image source `ubuntu`
+* Définissez l'image source de votre conteneur avec l'instruction `FROM`. Pour cet exercice, vous pouvez utiliser de nouveau l'image source `julienvey/fullubuntu`
 
 * Déclarez la commande `echo 'Hello World'` avec l'instruction `CMD` ou `ENTRYPOINT` ([voir la différence entre les deux instructions](http://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile?answertab=active#tab-top))
 

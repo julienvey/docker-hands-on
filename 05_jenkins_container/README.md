@@ -1,6 +1,6 @@
 # 5. Jenkins Container
 L'objectif de cet exercice est d'écrire un Dockerfile permettant de construire un conteneur Jenkins. Celui-ci permettra d'effectuer le build d'une application web Java en un WAR.  
-Attention: L'image de base de votre Dockerfile devra être ubuntu: votre Dockerfile devra donc utiliser la commande `FROM ubuntu`. Si vous utilisez une autre image de base, vous risquez de rencontrer des problèmes lors des prochains exercices.
+Attention: L'image de base de votre Dockerfile devra être `julienvey/fullubuntu` pour limiter les accès réseau ou `ubuntu`: votre Dockerfile devra donc utiliser la commande `FROM julienvey/fullubuntu`. Si vous utilisez une autre image de base, vous risquez de rencontrer des problèmes lors des prochains exercices, notamment pour la partie Docker-in-Docker
 
 ## a. Installer les packages prérequis
 

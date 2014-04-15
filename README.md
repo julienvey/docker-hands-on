@@ -1,6 +1,33 @@
 # Hands On Docker
 
-Ce Hands On a pour vocation de vous faire manipuler Docker. Tout d'abord en apprenant quelques bases, pour ensuite mettre en place sa propre usine logicielle de manière automatisée.
+Ce Hands On a été créé par [Julien Vey](https://twitter.com/julienvey) et [Pierre Padrixe](https://twitter.com/undefd) dans le cadre du Hands On Docker pour [Devoxx France](http://cfp.devoxx.fr/devoxxfr2014/talk/YCD-250/Votre%20livrable%20avec%20Docker,%20en%20prod%20d%C3%A8s%20demain%20!)
+
+Il a pour vocation de vous faire manipuler Docker. Tout d'abord en apprenant quelques bases, pour ensuite mettre en place sa propre usine logicielle de manière automatisée.
+
+## Installation de l'environnement
+
+Afin de limiter les accès wifi lors de ce Hands On, nous vous fournissons la plupart des éléments nécessaires sur clé USB. Vous trouvez donc de quoi...
+
+* Installer VirtualBox
+* Installer Vagrant
+
+Une fois ces deux éléments installés... Nous fournissons une box de base pour vagrant, qui contient Docker déjà installé, ainsi qu'un certain nombre d'images Docker pré-téléchargées.
+
+* Ajouter la box vagrant
+
+```bash
+$ vagrant box add docker-hands-on.box --name docker
+```
+
+* Clonez ou copier le répertoire de sources (celui-ci même)
+* Placez vous dans ce répertoire et...
+
+```bash
+$ vagrant up
+$ vagrant ssh
+```
+
+Vous êtes maintenant loggué sur votre VM et le Hands On peut commencer
 
 ## Les bases de Docker
 

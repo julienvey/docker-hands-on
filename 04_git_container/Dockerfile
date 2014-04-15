@@ -1,4 +1,4 @@
-FROM base
+FROM julienvey/fullubuntu
 
 # Install Git
 RUN apt-get update

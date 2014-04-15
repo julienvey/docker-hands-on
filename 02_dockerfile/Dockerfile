@@ -1,4 +1,4 @@
-FROM base
+FROM julienvey/fullubuntu
 
 # Install redis
 RUN apt-get update
