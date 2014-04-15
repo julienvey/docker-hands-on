@@ -8,7 +8,7 @@ Pour les exercices suivants, aidez-vous de la [documentation en ligne de Docker]
 
 ## a. Hello World
 
-Démarrez le conteneur de l'image `ubuntu` qui affiche "Hello World" à l'aide de la commande `echo`.
+Démarrez le conteneur de l'image `base` qui affiche "Hello World" à l'aide de la commande `echo`.
 
 ## b. Mode interactif
 
