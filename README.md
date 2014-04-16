@@ -19,7 +19,7 @@ Une fois ces deux éléments installés... Nous fournissons une box de base pour
 $ vagrant box add docker docker-hands-on.box
 ```
 
-* Clonez ou copier le répertoire de sources (celui-ci même)
+* Dans un répertoire de travail, créez un fichier Vagrantfile identique à [celui fournit](https://github.com/julienvey/docker-hands-on/blob/master/Vagrantfile), ou alors clonez ou copier le répertoire de sources (celui-ci même)
 * Placez vous dans ce répertoire et...
 
 ```bash
@@ -29,7 +29,7 @@ $ vagrant ssh
 
 Vous êtes maintenant loggué sur votre VM et le Hands On peut commencer.
 
-Note : le répertoire des sources est automatiquement monté sur la VM dans /vagrant.
+Note : Si vous avez lancé vagrant depuis le répertoire des sources, il sera automatiquement monté sur la VM dans /vagrant.
 Note2 : L'adresse IP de la machine est 192.168.29.100
 
 ## Les bases de Docker
