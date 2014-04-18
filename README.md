@@ -44,7 +44,7 @@ Avant de passer à un exemple concret, il est nécessaire de connaître quelques
 
 ## Automatiser la mise en place de son usine logicielle
 
-Le but de ce Hands On est donc d'automatiser la mise en place d'une usinge logicielle. Pour cela vous devrez au final lancer un unique script bash (de quelques lignes) qui vous permettra de construire l'architecture décrite sur le schéma suivant.
+Le but de ce Hands On est donc d'automatiser la mise en place d'une usine logicielle. Pour cela vous devrez au final lancer un unique script bash (de quelques lignes) qui vous permettra de construire l'architecture décrite sur le schéma suivant.
 
 ![](assets/jenkins-worflow.png)
 
