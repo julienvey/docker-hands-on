@@ -1,4 +1,4 @@
-FROM julienvey/fullubuntu
+FROM ubuntu
 
 # Install packages needed
 RUN apt-get update

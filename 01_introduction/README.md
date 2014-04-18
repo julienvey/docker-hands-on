@@ -1,17 +1,14 @@
 # 0. Installation
 
-Si vous utilisez la VM que nous fournissons, passez cette étape, sinon, installez Docker en vous référant aux [informations de la documentation Docker](http://docs.docker.io/en/latest/installation/)
+Installez Docker en vous référant aux [informations de la documentation Docker](http://docs.docker.io/en/latest/installation/)
 
 # 1. Introduction
 
 Pour les exercices suivants, aidez-vous de la [documentation en ligne de Docker](http://docs.docker.io/en/latest/reference/commandline/)
 
-## Note
-Pour limiter les accès réseau, nous fournissons une image de base contenant la plupart des packages nécessaires déjà téléchargés. Il vous suffira donc de bien veiller à utiliser l'image `julienvey/fullubuntu` comme image de base de vos exercices
-
 ## a. Hello World
 
-Démarrez le conteneur de l'image `julienvey/fullubuntu` qui affiche "Hello World" à l'aide de la commande `echo`.
+Démarrez le conteneur de l'image `base` qui affiche "Hello World" à l'aide de la commande `echo`.
 
 ## b. Mode interactif
 

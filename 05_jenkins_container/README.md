@@ -54,4 +54,6 @@ RUN chmod 700 /startup.sh
 
 ## e. Test
 
-* Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé en vous connectant à l'interface Web (Si vous utilisez Docker dans une VM, n'oubliez pas de faire un mapping du port 8080 entre votre conteneur et la VM hôte)
+* Vous pouvez désormais exécuter votre conteneur et tester si Jenkins a bien été déployé en vous connectant à l'interface Web (Si vous utilisez Docker dans une VM, n'oubliez pas de faire un mapping du port 8080 entre votre conteneur et la VM hôte).
+
+Note : Avec le Vagrantfile fournit, l'adresse IP de la VM est 192.168.29.100
